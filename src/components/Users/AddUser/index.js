@@ -11,15 +11,15 @@ const AddUser = (props) => {
   const addUserFunction = (e) => {
     e.preventDefault();
     if (
-      enteredUsername.trim.length === 0 ||
-      enteredAge.trim.length === 0
+      enteredUsername.trim().length === 0 ||
+      enteredAge.trim().length === 0
     ) {
       return;
     }
     if (+enteredAge < 1) {
       return;
     }
-    console.log(enteredAge, enteredUsername);
+    props.onAddUser(enteredUsername, enteredAge);
     setEnteredUsername('');
     setEnteredAge('');
   };
